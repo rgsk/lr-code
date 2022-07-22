@@ -162,33 +162,35 @@ export default function LoopAnalytics() {
   });
 
   const getPackagesMode = async () => {
-    let response = await analyticsApi.packagesMode(range);
-    if (response.error === false) {
-      let singles = [];
-      let groups = [];
-      let total = 0;
+    // let response = await analyticsApi.packagesMode(range);
+    // if (response.error === false) {
+    //   let singles = [];
+    //   let groups = [];
+    //   let total = 0;
 
-      if (response.data.single) {
-        for (let k in response.data.single) {
-          let value = response.data.single[k];
-          singles.push(value);
-          total = total + value;
-        }
-      }
-      if (response.data.group) {
-        for (let k in response.data.group) {
-          let value = response.data.group[k];
-          groups.push(value);
-          total = total + value;
-        }
-      }
-
-      setData([
-        { name: "Singles", type: "line", data: singles },
-        { name: "Groups", type: "area", data: groups },
-      ]);
-      setTotalPackages(total);
-    }
+    //   if (response.data.single) {
+    //     for (let k in response.data.single) {
+    //       let value = response.data.single[k];
+    //       singles.push(value);
+    //       total = total + value;
+    //     }
+    //   }
+    //   if (response.data.group) {
+    //     for (let k in response.data.group) {
+    //       let value = response.data.group[k];
+    //       groups.push(value);
+    //       total = total + value;
+    //     }
+    //   }
+    const singles = [1, 2, 3, 4];
+    const groups = [1, 2, 10, 4];
+    const total = 12;
+    setData([
+      { name: "Singles", type: "line", data: singles },
+      { name: "Groups", type: "area", data: groups },
+    ]);
+    setTotalPackages(total);
+    // }
   };
   useEffect(() => {
     getPackagesMode();

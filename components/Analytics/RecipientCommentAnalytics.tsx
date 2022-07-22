@@ -205,6 +205,8 @@ export default function RecipientCommentAnalytics() {
   };
 
   const getCommentsPercentage = async () => {
+    setPercent([50]);
+
     let response = await analyticsApi.commentsReceived(range);
     if (response.error === false && response.percent) {
       setPercent([response.percent]);

@@ -57,32 +57,30 @@ export default function Analytics({ path }: AnalyticsProps) {
   const win = new Win(windowDimensions);
 
   return (
-    <AuthGuard>
-      <Layout>
-        <div>
-          {win.up("md") && <Sidebar path={path} />}
-          <div className={classes.right}>
-            <Container maxWidth="xl">
-              <Typography className={classes.title}>Analytics</Typography>
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={12} md={12} lg={7}>
-                  <PackageAnalytics />
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={5}>
-                  <LoopAnalytics />
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={12} lg={7}>
-                  <LoopTypeAnalytics />
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={5}>
-                  <RecipientCommentAnalytics />
-                </Grid>
+    <Layout>
+      <div>
+        {win.up("md") && <Sidebar path={path} />}
+        <div className={classes.right}>
+          <Container maxWidth="xl">
+            <Typography className={classes.title}>Analytics</Typography>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={12} md={12} lg={7}>
+                <PackageAnalytics />
               </Grid>
-            </Container>
-          </div>
+              <Grid item xs={12} sm={12} md={12} lg={5}>
+                <LoopAnalytics />
+              </Grid>
+
+              <Grid item xs={12} sm={12} md={12} lg={7}>
+                <LoopTypeAnalytics />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={5}>
+                <RecipientCommentAnalytics />
+              </Grid>
+            </Grid>
+          </Container>
         </div>
-      </Layout>
-    </AuthGuard>
+      </div>
+    </Layout>
   );
 }

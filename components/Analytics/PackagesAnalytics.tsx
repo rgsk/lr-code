@@ -144,33 +144,35 @@ export default function PackageAnalytics() {
   });
 
   const getPackages = async () => {
-    let response = await analyticsApi.packagesSentReceived(range);
-    if (response.error === false) {
-      let outgoing = [];
-      let received = [];
-      let total = 0;
+    // let response = await analyticsApi.packagesSentReceived(range);
+    // if (response.error === false) {
+    //   let outgoing = [];
+    //   let received = [];
+    //   let total = 0;
 
-      if (response.data.sent) {
-        for (let k in response.data.sent) {
-          let value = response.data.sent[k];
-          outgoing.push(value);
-          total = total + value;
-        }
-      }
-      if (response.data.received) {
-        for (let k in response.data.received) {
-          let value = response.data.received[k];
-          received.push(value);
-          total = total + value;
-        }
-      }
+    //   if (response.data.sent) {
+    //     for (let k in response.data.sent) {
+    //       let value = response.data.sent[k];
+    //       outgoing.push(value);
+    //       total = total + value;
+    //     }
+    //   }
+    //   if (response.data.received) {
+    //     for (let k in response.data.received) {
+    //       let value = response.data.received[k];
+    //       received.push(value);
+    //       total = total + value;
+    //     }
+    //   }
+    const outgoing = [3, 2, 3];
+    const received = [1, 2, 3];
+    const total = 10;
 
-      setData([
-        { name: "Outgoing Packages", type: "column", data: outgoing },
-        { name: "Received Packages", type: "column", data: received },
-      ]);
-      setTotalPackages(total);
-    }
+    setData([
+      { name: "Outgoing Packages", type: "column", data: outgoing },
+      { name: "Received Packages", type: "column", data: received },
+    ]);
+    setTotalPackages(total);
   };
   useEffect(() => {
     getPackages();

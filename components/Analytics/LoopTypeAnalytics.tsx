@@ -126,6 +126,8 @@ export default function LoopTypeAnalytics() {
   };
 
   const getLoopTypes = async () => {
+    setData([10, 100]);
+
     let response = await analyticsApi.loopsTypes(range);
     if (response.error === false) {
       setData([response.internalLoops, response.externalLoops]);
